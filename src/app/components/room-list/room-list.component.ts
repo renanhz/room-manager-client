@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+
+import { Room } from 'src/app/models/room';
+import { RoomService } from 'src/app/services/room.service';
 
 @Component({
   selector: 'app-room-list',
@@ -7,9 +12,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoomListComponent implements OnInit {
 
-  constructor() { }
+  rooms!: Observable<Room[]>;
 
-  ngOnInit(): void {
+  constructor(private roomService: RoomService,
+    private router: Router) {
+    }
+
+  ngOnInit() {
+    this.reloadData();
+  }
+
+  reloadData() {
+    this.rooms = this.roomService.getRoomsList();
+  }
+
+  deleteRoom(id: number) {
+    this.roomService.deleteRoom(id)
+      .subscribe(
+        data => {
+          console.log(data);
+          this.reloadData();
+        },
+        error => console.log(error));
+  }
+
+  roomDetails(id: number){
+    this.router.navigate(['details', id]);
+  }
+
+  updateRoom(id: number){
+    this.router.navigate(['update', id]);
   }
 
 }
