@@ -12,7 +12,7 @@ import { RoomService } from 'src/app/services/room.service';
 })
 export class RoomListComponent implements OnInit {
 
-  rooms!: Observable<Room[]>;
+  rooms: Room[] = [];
 
   constructor(private roomService: RoomService,
     private router: Router) {
@@ -23,7 +23,7 @@ export class RoomListComponent implements OnInit {
   }
 
   reloadData() {
-    this.rooms = this.roomService.getRoomsList();
+    this.roomService.getRoomsList().subscribe((rooms: Room[]) => {this.rooms = rooms});
   }
 
   deleteRoom(id: number) {
