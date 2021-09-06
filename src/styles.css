@@ -1,4 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --primary-color: #33333D;
+    --primary-color-lighter: #424250;
+    --primary-text-color: #D7D7D7;
+}
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-color: var(--primary-color-lighter);
+    color: var(--primary-text-color);
+}
+
+.navbar-background {
+    background-color: var(--primary-color) !important;
+    color: var(--primary-text-color) !important;
+}
