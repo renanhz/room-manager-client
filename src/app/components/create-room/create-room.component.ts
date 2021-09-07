@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { Room } from 'src/app/models/room';
@@ -13,16 +14,22 @@ export class CreateRoomComponent implements OnInit {
 
   room: Room = new Room();
   submitted = false;
+  form: FormGroup;
 
-  constructor(private roomService: RoomService,
-    private router: Router) { }
-
-  ngOnInit() {
+  constructor(
+    private roomService: RoomService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) { 
+    this.form = this.formBuilder.group({
+      name: [null, [Validators.required]],
+      date: [null, [Validators.required]],
+      startHour: [null, [Validators.required]],
+      endHour: [null, [Validators.required]]
+    });
   }
 
-  newRoom(): void {
-    this.submitted = false;
-    this.room = new Room();
+  ngOnInit() {
   }
 
   save() {

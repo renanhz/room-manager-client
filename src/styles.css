@@ -3,6 +3,8 @@
     --primary-color: #33333D;
     --primary-color-lighter: #424250;
     --primary-text-color: #D7D7D7;
+    --primary-button: #FF6C11;
+    --secondary-button: #FF3864;
 }
 
 html, body { height: 100%; }
@@ -16,4 +18,31 @@ body {
 .navbar-background {
     background-color: var(--primary-color) !important;
     color: var(--primary-text-color) !important;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid white;
+    border-bottom: 1px solid var(--primary-text-color);
+    background-color: transparent;
+    color: var(--primary-text-color);
+}
+
+::placeholder {
+    color: var(--primary-text-color);
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.primary-button {
+    background-color: var(--primary-button);
+    color: var(--primary-text-color);
+}
+
+
+.card {
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 1px -1px rgb(0 0 0 / 20%), 0 1px 1px 0 rgb(0 0 0 / 14%), 0 1px 3px 0 rgb(0 0 0 / 12%);
 }
