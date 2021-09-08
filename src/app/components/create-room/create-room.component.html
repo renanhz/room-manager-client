@@ -3,7 +3,9 @@
     <h5 class="card-title">Criação de salas</h5>
     <form [formGroup]="form">
 
-      <input type="text" class="w-100 my-3" placeholder="Nome" name="name" formControlName="name" />
+      <div class="label-float">
+        <input type="text" class="w-100 my-3" placeholder="Nome" name="name" formControlName="name" />
+      </div>
       
       <input type="date" class="w-100 my-3" placeholder="Data" name="date" formControlName="date">
       
@@ -11,7 +13,10 @@
       
       <input type="text" class="w-100 my-3" placeholder="Hora de término" name="endHour" formControlName="endHour">
       
-      <button mat-raised-button class="primary-button">Salvar</button>
+      <div class="flex-row mt-3">
+        <button mat-raised-button class="primary-button mr-2">Salvar</button>
+        <button mat-raised-button class="secondary-button ml-2" (click)="resetForm()">Resetar</button>
+      </div>
     </form>
   </div>
 </div>

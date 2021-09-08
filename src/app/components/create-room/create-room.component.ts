@@ -48,4 +48,8 @@ export class CreateRoomComponent implements OnInit {
     this.router.navigate(['/rooms']);
   }
 
+  resetForm() {
+    this.form.reset();
+  }
+
 }
