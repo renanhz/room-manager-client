@@ -33,10 +33,6 @@ input {
     color: var(--primary-text-color);
 }
 
-textarea:focus, input:focus{
-    outline: none;
-}
-
 .primary-button {
     background-color: var(--primary-button);
     color: var(--primary-text-color);
